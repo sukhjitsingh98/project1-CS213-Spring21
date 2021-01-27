@@ -7,6 +7,7 @@ public class Book {
     @Override
     public boolean equals(Object obj){ //Check if the two books are the same by comparing the serial number of the two books.
 
+        //if null always false
         if(obj == null) {
             return false;
         }
@@ -18,7 +19,6 @@ public class Book {
         if(serialNumber.equals(number)) {
             return true;
         }
-
         return false;
     }
     @Override

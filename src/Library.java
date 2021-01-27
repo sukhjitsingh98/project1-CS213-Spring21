@@ -5,7 +5,20 @@ public class Library {
 
     public Library() { } //default constructor to create an empty bag
     private int find(Book book) { return -1; } // helper method to find a book in the bag
-    private void grow() { } // helper method to grow the capacity by 4
+
+    private void grow() { // Creates a new array that is bigger by four and copies the elements.
+        int increaseArrayBy = 4; //the array will increase by size of 4.
+        Book[] newArray = new Book[books.length + increaseArrayBy];
+
+        //copy the current number of books.
+        for(int i= 0; i < numBooks; i++) {
+            newArray[i] = books[i];
+        }
+
+        //reassign books so that it refers to newArray.
+        books = newArray;
+    }
+
     public void add(Book book) { }
     public boolean remove(Book book) { return false; }
     public boolean checkOut(Book book) { return false; }
