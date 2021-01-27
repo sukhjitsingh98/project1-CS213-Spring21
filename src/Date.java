@@ -4,5 +4,5 @@ public class Date {
     private int day;
     public Date(String date) { } //taking mm/dd/yyyy and create a Date object
     public Date() { } //return today’s date
-    public isValid() { }
+    public void isValid() { }
 }

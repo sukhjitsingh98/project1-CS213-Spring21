@@ -5,12 +5,32 @@ public class Book {
     private Date datePublished;
 
     @Override
-    public boolean equals(Object obj){
+    public boolean equals(Object obj){ //Check if the two books are the same by comparing the serial number of the two books.
+
+        if(obj == null) {
+            return false;
+        }
+
+        //will take the toString output cut the first 5 chars, and only leave the next 5 which will be the serial number.
+        String serialNumber = obj.toString().substring(5, 10);
+
+        //compare the values of the two serial numbers, if they are the same then the books are equal
+        if(serialNumber.equals(number)) {
+            return true;
+        }
+
         return false;
     }
     @Override
-    public String toString() {
-        return null;
+    public String toString() { //Return a string with the number,name,date,and checkout status formatted.
+        String result = "Book#" + number + "::" + name + "::" + datePublished + "::";
+        if(checkedOut) {
+            result += "is available.";
+        }
+        else{
+            result += "is checked out.";
+        }
+        return result;
     }
 
 }
