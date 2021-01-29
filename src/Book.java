@@ -33,4 +33,9 @@ public class Book {
         return result;
     }
 
+    //helper method which returns the serial number of a book. Don't know if this is allowed yet.
+    public String getNumber() {
+        return number;
+    }
+
 }
