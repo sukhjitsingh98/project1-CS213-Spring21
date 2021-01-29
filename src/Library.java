@@ -18,7 +18,7 @@ public class Library {
         return -1;
     }
 
-    private void grow() { // Creates a new array that is bigger by four and copies the elements.
+    private void grow() { // Creates a new array that is bigger by four indexes and copies the elements.
         int increaseArrayBy = 4; //the array will increase by size of 4.
         Book[] newArray = new Book[books.length + increaseArrayBy];
 
@@ -47,7 +47,6 @@ public class Library {
     }
 
     public boolean remove(Book book) {  //Removes the given book if it is in the library, if not returns false.
-
         //find the book using the helper method.
         int bookIndex = find(book);
         //if the index equals -1 than the book is not in the library and cannot be removed.
