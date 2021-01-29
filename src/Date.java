@@ -15,11 +15,9 @@ public class Date {
 
     public Date() {
         Calendar calendar = Calendar.getInstance();
-        String currentYear = String.valueOf(calendar.get(Calendar.YEAR));
-        String currentMonth = String.valueOf(calendar.get(Calendar.MONTH)+1);
-        String currentDate = String.valueOf(calendar.get(Calendar.DATE));
-        String todaysDate = currentMonth + "/" + currentDate + "/" + currentYear;
-        //return todaysDate;
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH)+1;
+        day = calendar.get(Calendar.DATE);
     } //return today’s date
 
     private Boolean isLeapYear(){
@@ -41,45 +39,45 @@ public class Date {
         }
     }
 
-    public isValid() {
+    public Boolean isValid() {
         Calendar calendar = Calendar.getInstance();
         if(year<1900 || year>calendar.get(Calendar.YEAR)){
-            //Return invalid
+            return false;
         }
         else if(year==calendar.get(Calendar.YEAR)) {
             if(month>(calendar.get(Calendar.MONTH)+1)) {
-                //Return invalid
+                return false;
             }
             else if (month==(calendar.get(Calendar.MONTH)+1)) {
                 if(day>calendar.get(Calendar.DATE)) {
-                    //Return invalid
+                    return false;
                 }
             }
         }
         else if(month<1 || month>12) {
-            //Return invalid
+            return false;
         }
         else if(month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12){
             if(day>31 || day<1){
-                //Invalid date
+                return false;
             }
         }
         else if(month== 4 || month==6 || month==9 || month==11){
             if(day>30 || day<1){
-                //Invalid date
+                return false;
             }
         }
         else if(month==2){
             //Check for leap year
-            if(isLeapYear() == true)
+            if(isLeapYear() == true){
                 if (day>29 || day<1) {
-                    //Invalid date
+                    return false;
                 }
             }
             else if(day>28 || day<1){
-                //invalid date
+                return false;
             }
         }
-
+        return true;
     }
 }
