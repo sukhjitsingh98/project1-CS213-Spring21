@@ -19,9 +19,9 @@ public class Date {
     } //return today’s date
 
     private Boolean isLeapYear(){
-        if (year%Constants.LEAP_YEAR_INTERVAL==0){
-            if (year%Constants.LEAP_YEAR_CENTURY==0){
-                if(year%Constants.CONFIRM_LEAP_YEAR_CENTURY==0){
+        if (year%Constants.QUADRENNIAL==0){
+            if (year%Constants.CENTENNIAL==0){
+                if(year%Constants.QUATERCENTENNIAL==0){
                     return true;
                 }
                 else{

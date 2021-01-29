@@ -18,8 +18,20 @@ public class Library {
         //reassign books so that it refers to newArray.
         books = newArray;
     }
-
-    public void add(Book book) { }
+    //NOTE FOR GERMAN: I am making the assumption that everytime we remove a book, we shift the remaining books right to take its place
+    //NOTE CONTINUED: Hence each new book is added next to the last book in the array.
+    public void add(Book book) {
+        //Grow the array if no empty index remains
+        if(books[books.length-1]!=null){
+            grow();
+        }
+        //Add new book to the first empty index available
+        for(int i = 0; i<books.length; i++){
+            if(books[i]==null){
+                books[i] = book;
+            }
+        }
+    }
     public boolean remove(Book book) { return false; }
     public boolean checkOut(Book book) { return false; }
     public boolean returns(Book book) { return false; }

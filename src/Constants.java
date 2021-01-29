@@ -23,7 +23,7 @@ public class Constants {
     public static final int MINIMUM_YEAR_LIMIT = 1900;
 
     //Constants for leap year calculation
-    public static final int LEAP_YEAR_INTERVAL = 4;
-    public static final int LEAP_YEAR_CENTURY = 100;
-    public static final int CONFIRM_LEAP_YEAR_CENTURY = 400;
+    public static final int QUADRENNIAL = 4;
+    public static final int CENTENNIAL = 100;
+    public static final int QUATERCENTENNIAL = 400;
 }
