@@ -31,8 +31,6 @@ public class Library {
         books = newArray;
     }
 
-    //NOTE FOR GERMAN: I am making the assumption that everytime we remove a book, we shift the remaining books right to take its place
-    //NOTE CONTINUED: Hence each new book is added next to the last book in the array.
     public void add(Book book) {
         //Grow the array if no empty index remains
         if(books[books.length-1]!=null){
@@ -42,8 +40,10 @@ public class Library {
         for(int i = 0; i<books.length; i++){
             if(books[i]==null){
                 books[i] = book;
+                break;
             }
         }
+        numBooks++;
     }
 
     public boolean remove(Book book) {  //Removes the given book if it is in the library, if not returns false.
@@ -69,10 +69,41 @@ public class Library {
         return true;
     }
 
+    //NOTE TO GERMAN: Here I am assuming that false means book is not available for check out and true means that it is
+    public boolean checkOut(Book book) {
+        //find the book using the helper method.
+        int bookIndex = find(book);
+        //if the index equals -1 than the book is not in the library and cannot be checked out.
+        if(bookIndex == -1) {
+            return false;
+        }
+        //if the book is found but it is checked out, it cannot be check out until it is returned
+        else if(books[bookIndex].getCheckedOutStatus()==true){
+            return false;
+        }
 
+        //if the book is found but it is not checked out, it can be check out and it is marked as checked out
+        books[bookIndex].setCheckedOut(true);
+        return true;
+    }
 
-    public boolean checkOut(Book book) { return false; }
-    public boolean returns(Book book) { return false; }
+    //NOTE TO GERMAN: Here I am assuming that false means book cannot be returned and true means that it can
+    public boolean returns(Book book) {
+        //find the book using the helper method.
+        int bookIndex = find(book);
+        //if the index equals -1 than the book is not in the library and cannot be returned.
+        if(bookIndex == -1) {
+            return false;
+        }
+        //if the book is found but it is not checked out, it cannot be returned
+        else if(books[bookIndex].getCheckedOutStatus()==false){
+            return false;
+        }
+
+        //if the book is found and it is checked out, it can be returned and it is marked as such
+        books[bookIndex].setCheckedOut(false);
+        return true;
+    }
     public void print() { } //print the list of books in the bag
     public void printByDate() { } //print the list of books by datePublished (ascending)
     public void printByNumber() { } //print the list of books by number (ascending)
