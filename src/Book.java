@@ -33,18 +33,18 @@ public class Book {
         return result;
     }
 
-    //helper method which returns the serial number of a book. Don't know if this is allowed yet. (Sukhjit: It might be since we can add helper methods)
+    //helper method which returns the serial number of a book.
     public String getNumber() {
         return number;
     }
 
     //Added by Sukhjit
-    //helper method which sets the availability status of a book
+    //helper method which sets the availability status of a book.
     public void setCheckedOut(Boolean checkedOut) {
         this.checkedOut = checkedOut;
     }
 
-    //helper method which returns the availability status of a book
+    //helper method which returns the availability status of a book.
     public Boolean getCheckedOutStatus(){
         return checkedOut;
     }

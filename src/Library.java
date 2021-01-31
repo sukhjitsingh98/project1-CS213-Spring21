@@ -59,7 +59,7 @@ public class Library {
 
         //shift the elements to the right of it by one.
         for(int i = bookIndex+1; i < books.length; i++) {
-            //will trail i by one that way the previous index can be replaced. Since i can never be zero there is not out of bound issue.
+            //will trail i by one that way the previous index can be replaced. Since i can never be zero there is no out of bound issue.
             int previousIndex = i-1;
             books[previousIndex] = books[i]; //make the swap of elements
         }
@@ -104,7 +104,12 @@ public class Library {
         books[bookIndex].setCheckedOut(false);
         return true;
     }
-    public void print() { } //print the list of books in the bag
+    public void print() {  //print the list of books in the bag
+        for(int i = 0; i < numBooks; i++){
+            System.out.println(books[i].toString());
+        }
+    }
+
     public void printByDate() { } //print the list of books by datePublished (ascending)
     public void printByNumber() { } //print the list of books by number (ascending)
 
