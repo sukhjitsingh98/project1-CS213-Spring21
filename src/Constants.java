@@ -1,4 +1,4 @@
-public class Constants {
+public final class Constants {
     //Constants for Month Names
     public static final int JANUARY = 1;
     public static final int FEBRUARY = 2;
@@ -26,4 +26,9 @@ public class Constants {
     public static final int QUADRENNIAL = 4;
     public static final int CENTENNIAL = 100;
     public static final int QUATERCENTENNIAL = 400;
+
+    //Constants for Library class
+    public static final int startingArraySize = 4;
+    public static final int increaseArrayBy = 4;
+
 }

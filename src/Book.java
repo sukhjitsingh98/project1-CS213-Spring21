@@ -38,6 +38,9 @@ public class Book {
         return number;
     }
 
+    //returns the date the book was published.
+    public Date getDatePublished() { return datePublished; }
+
     //Added by Sukhjit
     //helper method which sets the availability status of a book.
     public void setCheckedOut(Boolean checkedOut) {

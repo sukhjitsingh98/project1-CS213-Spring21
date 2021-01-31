@@ -3,7 +3,11 @@ public class Library {
     private Book[] books; // array-based implementation of the bag data structure
     private int numBooks; // the number of books currently in the bag
 
-    public Library() { } //default constructor to create an empty bag
+
+    public Library() { //default constructor to create an empty bag
+        books = new Book[Constants.startingArraySize];
+        numBooks = 0;
+    }
 
     private int find(Book book) { // helper method to find a book in the bag.
 
@@ -19,8 +23,7 @@ public class Library {
     }
 
     private void grow() { // Creates a new array that is bigger by four indexes and copies the elements.
-        int increaseArrayBy = 4; //the array will increase by size of 4.
-        Book[] newArray = new Book[books.length + increaseArrayBy];
+        Book[] newArray = new Book[books.length + Constants.increaseArrayBy];
 
         //copy the current number of books.
         for(int i= 0; i < numBooks; i++) {
@@ -110,7 +113,10 @@ public class Library {
         }
     }
 
-    public void printByDate() { } //print the list of books by datePublished (ascending)
+    public void printByDate() {  //print the list of books by datePublished (ascending)
+
+
+    }
     public void printByNumber() { } //print the list of books by number (ascending)
 
 
