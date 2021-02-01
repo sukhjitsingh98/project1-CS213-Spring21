@@ -6,9 +6,21 @@ public class Date {
     private int day;
 
     public Date(String date) {
-        year = Integer.parseInt(date.substring(6));
-        month = Integer.parseInt(date.substring(3,5));
-        day = Integer.parseInt(date.substring(0,2));
+        try{
+            year = Integer.parseInt(date.substring(6));
+        }catch (NumberFormatException ex) {
+            year = -1;
+        }
+        try{
+            day = Integer.parseInt(date.substring(3,5));
+        }catch (NumberFormatException ex) {
+            day = -1;
+        }
+        try{
+            month = Integer.parseInt(date.substring(0,2));
+        }catch (NumberFormatException ex) {
+            month = -1;
+        }
     } //taking mm/dd/yyyy and create a Date object
 
     public Date() {
