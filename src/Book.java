@@ -4,6 +4,13 @@ public class Book {
     private boolean checkedOut;
     private Date datePublished;
 
+    public Book(String number, String name, String datePublished){
+        this.number = number; //MAYBE????
+        this.name = name;
+        this.datePublished = new Date(datePublished);
+        checkedOut = false;
+    }
+
     @Override
     public boolean equals(Object obj){ //Check if the two books are the same by comparing the serial number of the two books.
 

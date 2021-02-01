@@ -107,17 +107,75 @@ public class Library {
         books[bookIndex].setCheckedOut(false);
         return true;
     }
+
     public void print() {  //print the list of books in the bag
         for(int i = 0; i < numBooks; i++){
             System.out.println(books[i].toString());
         }
     }
 
-    public void printByDate() {  //print the list of books by datePublished (ascending)
-
-
+    private boolean compareDatePublished(Book book1, Book book2){
+        //If book1 year is greater than book2 year, return true
+        if(book1.getDatePublished().getYear()>book2.getDatePublished().getYear()){
+            return true;
+        }
+        else if(book1.getDatePublished().getYear()==book2.getDatePublished().getYear()){
+            //If same year and book1 month is greater than book2 month, return true
+            if(book1.getDatePublished().getMonth()>book2.getDatePublished().getMonth()){
+                return true;
+            }
+            else if(book1.getDatePublished().getMonth()==book2.getDatePublished().getMonth()){
+                //If same year and month and book1 day is greater than book2 day, return true
+                if(book1.getDatePublished().getDay()>book2.getDatePublished().getDay()){
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        //Otherwise book2 has the greater date
+        return false;
     }
-    public void printByNumber() { } //print the list of books by number (ascending)
+
+    private void sortBooksDateAscending(){
+        for (int i = 1; i < books.length; i++) {
+            Book[] tempBook = new Book[1];
+            tempBook[0] = books[i];
+            int j = i-1;
+            while(j>=0 && compareDatePublished(books[j],tempBook[0])==true) {
+                    books[j + 1] = books[j];
+                    j = j - 1;
+            }
+            books[j+1] = tempBook[0];
+        }
+    }
+
+    public void printByDate() {  //print the list of books by datePublished (ascending)
+        sortBooksDateAscending();
+        for(int i = 0; i < numBooks; i++){
+            System.out.println(books[i].toString());
+        }
+    }
+
+    private void sortBooksNumberAscending(){
+        for (int i = 1; i < books.length; i++) {
+            Book[] tempBook = new Book[1];
+            tempBook[0] = books[i];
+            int j = i-1;
+            while(j>=0 && Integer.parseInt(books[j].getNumber()) > Integer.parseInt(tempBook[0].getNumber())) {
+                books[j+1] = books[j];
+                j = j-1;
+            }
+            books[j+1] = tempBook[0];
+        }
+    }
+
+    public void printByNumber() {
+        sortBooksNumberAscending();
+        for(int i = 0; i < numBooks; i++){
+            System.out.println(books[i].toString());
+        }
+    } //print the list of books by number (ascending)
 
 
 }

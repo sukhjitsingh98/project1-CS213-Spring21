@@ -6,9 +6,9 @@ public class Date {
     private int day;
 
     public Date(String date) {
-        this.year = Integer.parseInt(date.substring(6));
-        this.year = Integer.parseInt(date.substring(3,5));
-        this.year = Integer.parseInt(date.substring(0,2));
+        year = Integer.parseInt(date.substring(6));
+        month = Integer.parseInt(date.substring(3,5));
+        day = Integer.parseInt(date.substring(0,2));
     } //taking mm/dd/yyyy and create a Date object
 
     public Date() {
@@ -17,6 +17,18 @@ public class Date {
         month = calendar.get(Calendar.MONTH)+1;
         day = calendar.get(Calendar.DATE);
     } //return today’s date
+
+    public int getYear(){
+        return year;
+    }
+
+    public int getMonth(){
+        return month;
+    }
+
+    public int getDay(){
+        return day;
+    }
 
     private Boolean isLeapYear(){
         if (year%Constants.QUADRENNIAL==0){
