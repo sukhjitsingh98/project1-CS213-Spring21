@@ -30,7 +30,8 @@ public class Book {
     }
     @Override
     public String toString() { //Return a string with the number,name,date,and checkout status formatted.
-        String result = "Book#" + number + "::" + name + "::" + datePublished + "::";
+        String result =
+                "Book#" + number + "::" + name + "::" + datePublished.getMonth()+ "/" + datePublished.getDay() + "/" + datePublished.getYear() + "::";
         if(checkedOut) {
             result += "is available.";
         }

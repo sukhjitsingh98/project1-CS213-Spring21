@@ -151,8 +151,10 @@ public class Library {
     }
 
     public void printByDate() {  //print the list of books by datePublished (ascending)
-        sortBooksDateAscending();
-        for(int i = 0; i < numBooks; i++){
+        if (numBooks > 1) {
+            sortBooksDateAscending();
+        }
+        for (int i = 0; i < numBooks; i++) {
             System.out.println(books[i].toString());
         }
     }
@@ -171,11 +173,16 @@ public class Library {
     }
 
     public void printByNumber() {
-        sortBooksNumberAscending();
+        if(numBooks>1) {
+            sortBooksNumberAscending();
+        }
         for(int i = 0; i < numBooks; i++){
             System.out.println(books[i].toString());
         }
     } //print the list of books by number (ascending)
 
+    public int getNumBooks(){
+        return numBooks;
+    }
 
 }
