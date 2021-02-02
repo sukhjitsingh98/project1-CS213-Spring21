@@ -74,7 +74,7 @@ public class Kiosk {
                         int serialNumber = 10001 + increment; //MAYBE???????
                         Book book = new Book(Integer.toString(serialNumber), statement2, statement3);
                         library.add(book);
-                        System.out.println(statement2 + " added to the library");
+                        System.out.println(statement2 + " added to the library.");
                         increment++;
                     }
                     else{
