@@ -92,14 +92,17 @@ public class Kiosk {
                 if(!statement2.equals("") && statement3.equals("")){
                     //create a new book with the serial number that was given, the name and date are not needed and can be anything.
                     Book removeBook = new Book(statement2, "someName", "someDate");
-//                    if(library.remove(removeBook)) {
-//                        System.out.println("Book removed.");
-//                    }
-//                    else{
-//                        System.out.println("BOOK NOT REMOVED");
-//                    }
+
+                    Boolean wasRemoved = library.remove(removeBook);
+                    if(wasRemoved) {
+                        System.out.println("Book# " + statement2 + "removed");
+                    }
+                    else{
+                        System.out.println("Unable to remove, the library does not have this book.");
+                    }
 
                 }
+                    continue;
             }
             else if(statement1.equals("O")){
                 if(!statement2.equals("") && statement3.equals("")){
