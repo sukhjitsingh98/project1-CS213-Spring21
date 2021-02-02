@@ -6,20 +6,27 @@ public class Date {
     private int day;
 
     public Date(String date) {
-        try{
-            year = Integer.parseInt(date.substring(6));
-        }catch (NumberFormatException ex) {
+        if(date.length()<7){
             year = -1;
-        }
-        try{
-            day = Integer.parseInt(date.substring(3,5));
-        }catch (NumberFormatException ex) {
+            month = -1;
             day = -1;
         }
-        try{
-            month = Integer.parseInt(date.substring(0,2));
-        }catch (NumberFormatException ex) {
-            month = -1;
+        else {
+            try {
+                year = Integer.parseInt(date.substring(6));
+            } catch (NumberFormatException ex) {
+                year = -1;
+            }
+            try {
+                day = Integer.parseInt(date.substring(3, 5));
+            } catch (NumberFormatException ex) {
+                day = -1;
+            }
+            try {
+                month = Integer.parseInt(date.substring(0, 2));
+            } catch (NumberFormatException ex) {
+                month = -1;
+            }
         }
     } //taking mm/dd/yyyy and create a Date object
 
