@@ -28,11 +28,11 @@ public final class Constants {
     public static final int QUATERCENTENNIAL = 400;
 
     //Constants for Library class
-    public static final int startingArraySize = 4;
-    public static final int increaseArrayBy = 4;
+    public static final int STARTINGARRAYSIZE = 4;
+    public static final int INCREASEARRAYBY = 4;
 
     //Constants for Kiosk class
-    public static final int startingSerialNumber = 10001;
+    public static final int STARTINGSERIALNUMBER = 10001;
 
 
 }
