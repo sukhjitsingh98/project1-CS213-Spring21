@@ -14,7 +14,7 @@ public class Kiosk {
         //continuously loop and scan until the session is ended by the input of "Q".
         while(sc.hasNext()){
 
-            //stringTokenize with a comma as a delimiter
+            //stringTokenizer with a comma as a delimiter
             StringTokenizer input = new StringTokenizer(sc.nextLine(), ",");
 
             String statement1 = "";
@@ -79,10 +79,11 @@ public class Kiosk {
                     }
                     else{
                         System.out.println("Invalid Date!");
+                        continue;
                     }
                 }
                 else{
-                    System.out.println("Invalid Command");
+                    System.out.println("Invalid Command!");
                 }
             }
             else if(statement1.equals("R")){
@@ -99,7 +100,8 @@ public class Kiosk {
                     // serial number as an argument
                 }
                 else{
-                    System.out.println("Invalid Command");
+                    System.out.println("Invalid Command!");
+                    continue;
                 }
             }
             else if(statement1.equals("I")) {
@@ -108,8 +110,13 @@ public class Kiosk {
                     // serial number as an argument
                 }
                 else{
-                    System.out.println("Invalid Command");
+                    System.out.println("Invalid Command!");
+                    continue;
                 }
+            }
+            else{
+                System.out.println("Invalid Command!");
+                continue;
             }
 
 
