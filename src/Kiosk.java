@@ -105,6 +105,14 @@ public class Kiosk {
                 if(!statement2.equals("") && statement3.equals("")){
                     //NOTE: This one is a bit confusing since the find() command is private and we need to pass the
                     // serial number as an argument
+                    Book book = new Book(statement2, "random book", "2/1/2020");
+                    Boolean checkOut = library.checkOut(book);
+                    if(checkOut){
+                        System.out.println("You've checked out Book#"+statement2+". Enjoy!");
+                    }
+                    else{
+                        System.out.println("Book#"+statement2+" is not available.");
+                    }
                 }
                 else{
                     System.out.println("Invalid Command!");
@@ -115,6 +123,14 @@ public class Kiosk {
                 if (!statement2.equals("") && statement3.equals("")) {
                     //NOTE: This one is a bit confusing since the find() command is private and we need to pass the
                     // serial number as an argument
+                    Book book = new Book(statement2, "random book", "2/1/2020");
+                    Boolean returns = library.returns(book);
+                    if(returns){
+                        System.out.println("Book#"+statement2+" return has completed. Thanks!");
+                    }
+                    else{
+                        System.out.println("Book#"+statement2+" was not checked out!");
+                    }
                 }
                 else{
                     System.out.println("Invalid Command!");
