@@ -34,11 +34,11 @@ public class Kiosk {
             }
 
             //If the input is "Q", then break out of the loop to exit.
-            if(statement1.equals("Q")) {
+            if(statement1.equals("Q") && statement2.equals("") && statement3.equals("")) {
                 break;
             }
 
-            else if(statement1.equals("PA")){
+            else if(statement1.equals("PA") && statement2.equals("") && statement3.equals("")){
                 if(library.getNumBooks()==0){
                     System.out.println("Library catalog is empty!");
                 }
@@ -48,7 +48,7 @@ public class Kiosk {
                     System.out.println("**End of list");
                 }
             }
-            else if(statement1.equals("PD")){
+            else if(statement1.equals("PD") && statement2.equals("") && statement3.equals("")){
                 if(library.getNumBooks()==0){
                     System.out.println("Bookshelf is empty!");
                 }
@@ -58,7 +58,7 @@ public class Kiosk {
                     System.out.println("**End of list");
                 }
             }
-            else if(statement1.equals("PN")){
+            else if(statement1.equals("PN") && statement2.equals("") && statement3.equals("")){
                 if(library.getNumBooks()==0){
                     System.out.println("Bookshelf is empty!");
                 }
