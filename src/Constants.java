@@ -32,7 +32,7 @@ public final class Constants {
     public static final int increaseArrayBy = 4;
 
     //Constants for Kiosk class
-    public static final int startingSerialNumber = 1001;
+    public static final int startingSerialNumber = 10001;
 
 
 }

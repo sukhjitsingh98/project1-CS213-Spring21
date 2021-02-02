@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -84,14 +85,20 @@ public class Kiosk {
                 }
                 else{
                     System.out.println("Invalid Command!");
+                    continue;
                 }
             }
             else if(statement1.equals("R")){
                 if(!statement2.equals("") && statement3.equals("")){
-                /*NOTE: This one is a bit confusing since the find() command is private and we need to pass the
-                serial number as an argument. We could make get statements in library to get the book array and
-                then use the .equals() command to compare each book and the given serial number then pass that book
-                as a reference. Not sure if this is allowed*/
+                    //create a new book with the serial number that was given, the name and date are not needed and can be anything.
+                    Book removeBook = new Book(statement2, "someName", "someDate");
+//                    if(library.remove(removeBook)) {
+//                        System.out.println("Book removed.");
+//                    }
+//                    else{
+//                        System.out.println("BOOK NOT REMOVED");
+//                    }
+
                 }
             }
             else if(statement1.equals("O")){
