@@ -142,7 +142,7 @@ public class Library {
             Book[] tempBook = new Book[1];
             tempBook[0] = books[i];
             int j = i-1;
-            while(j>=0 && compareDatePublished(books[j],tempBook[0])==true) {
+            while(j>=0 && books[j]!=null && tempBook[0]!=null && compareDatePublished(books[j],tempBook[0])==true) {
                     books[j + 1] = books[j];
                     j = j - 1;
             }
@@ -164,7 +164,8 @@ public class Library {
             Book[] tempBook = new Book[1];
             tempBook[0] = books[i];
             int j = i-1;
-            while(j>=0 && Integer.parseInt(books[j].getNumber()) > Integer.parseInt(tempBook[0].getNumber())) {
+            while(j>=0&& books[j]!=null && tempBook[0]!=null &&
+                     Integer.parseInt(books[j].getNumber()) > Integer.parseInt(tempBook[0].getNumber())) {
                 books[j+1] = books[j];
                 j = j-1;
             }
