@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Kiosk {
 
@@ -10,24 +11,36 @@ public class Kiosk {
         int increment = 0;
 
         Scanner sc = new Scanner(System.in);
-        sc.useDelimiter(",");
         //continuously loop and scan until the session is ended by the input of "Q".
         while(sc.hasNext()){
-            String statement1 = sc.next();
+
+            //stringTokenize with a comma as a delimiter
+            StringTokenizer input = new StringTokenizer(sc.nextLine(), ",");
+
+            String statement1 = "";
             String statement2 = "";
             String statement3 = "";
 
-            if(sc.hasNext()){
-                statement2 = sc.next();
+            //assign the statements if possible
+            if(input.hasMoreTokens()) {
+                statement1 = input.nextToken();
+                System.out.println("S1: " + statement1);
             }
-            if(sc.hasNext()){
-                statement3 = sc.next();
+            if(input.hasMoreTokens()) {
+                statement2 = input.nextToken();
+                System.out.println("S2: " + statement2);
+            }
+
+            if(input.hasMoreTokens()) {
+                statement3 = input.nextToken();
+                System.out.println("S3: " + statement3);
             }
 
             //If the input is "Q", then break out of the loop to exit.
             if(statement1.equals("Q")) {
                 break;
             }
+
             else if(statement1.equals("PA")){
                 if(library.getNumBooks()==0){
                     System.out.println("Library catalog is empty!");
