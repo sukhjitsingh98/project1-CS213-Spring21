@@ -33,10 +33,10 @@ public class Book {
         String result =
                 "Book#" + number + "::" + name + "::" + datePublished.getMonth()+ "/" + datePublished.getDay() + "/" + datePublished.getYear() + "::";
         if(checkedOut) {
-            result += "is available.";
+            result += "is checked out.";
         }
         else{
-            result += "is checked out.";
+            result += "is available.";
         }
         return result;
     }
