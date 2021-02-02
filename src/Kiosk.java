@@ -24,16 +24,13 @@ public class Kiosk {
             //assign the statements if possible
             if(input.hasMoreTokens()) {
                 statement1 = input.nextToken();
-                System.out.println("S1: " + statement1);
             }
             if(input.hasMoreTokens()) {
                 statement2 = input.nextToken();
-                System.out.println("S2: " + statement2);
             }
 
             if(input.hasMoreTokens()) {
                 statement3 = input.nextToken();
-                System.out.println("S3: " + statement3);
             }
 
             //If the input is "Q", then break out of the loop to exit.
