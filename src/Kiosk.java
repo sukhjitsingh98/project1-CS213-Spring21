@@ -1,3 +1,9 @@
+/**
+ First, a single, very descriptive sentence describing the class.
+ Then, a couple more sentences of description to elaborate.
+ @author German Munguia, Sukhjit Singh
+ */
+
 import java.util.Scanner;
 import java.util.StringTokenizer;
 

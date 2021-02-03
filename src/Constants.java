@@ -1,3 +1,9 @@
+/**
+ First, a single, very descriptive sentence describing the class.
+ Then, a couple more sentences of description to elaborate.
+ @author German Munguia, Sukhjit Singh
+ */
+
 public final class Constants {
     //Constants for Month Names
     public static final int JANUARY = 1;
@@ -21,6 +27,28 @@ public final class Constants {
 
     //Constants for year limits
     public static final int MINIMUM_YEAR_LIMIT = 1900;
+
+    //Constants for date substring positions
+    public static final int SINGLE_DIGIT_MONTH_DASH_POSITION = 1;
+    public static final int DOUBLE_DIGIT_MONTH_DASH_POSITION = 2;
+    public static final int SINGLE_DIGIT_DAY_DASH_POSITION1 = 3;
+    public static final int SINGLE_DIGIT_DAY_DASH_POSITION2 = 4;
+    public static final int DOUBLE_DIGIT_DAY_DASH_POSITION1 = 4;
+    public static final int DOUBLE_DIGIT_DAY_DASH_POSITION2 = 5;
+
+    public static final int MONTH_SUBSTRING_START = 0;
+    public static final int MONTH_SUBSTRING_END1 = 1;
+    public static final int MONTH_SUBSTRING_END2 = 2;
+
+    public static final int DAY_SUBSTRING_START1 = 2;
+    public static final int DAY_SUBSTRING_START2 = 3;
+    public static final int DAY_SUBSTRING_END1 = 3;
+    public static final int DAY_SUBSTRING_END2 = 4;
+    public static final int DAY_SUBSTRING_END3 = 5;
+
+    public static final int YEAR_SUBSTRING_START1 = 4;
+    public static final int YEAR_SUBSTRING_START2 = 5;
+    public static final int YEAR_SUBSTRING_START3 = 6;
 
     //Constants for leap year calculation
     public static final int QUADRENNIAL = 4;
