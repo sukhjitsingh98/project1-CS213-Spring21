@@ -104,7 +104,7 @@ public class Kiosk {
 
                     Boolean wasRemoved = library.remove(removeBook);
                     if(wasRemoved) {
-                        System.out.println("Book# " + statement2 + "removed");
+                        System.out.println("Book#" + statement2 + " removed");
                     }
                     else{
                         System.out.println("Unable to remove, the library does not have this book.");
@@ -143,13 +143,16 @@ public class Kiosk {
                         System.out.println("Book#"+statement2+" return has completed. Thanks!");
                     }
                     else{
-                        System.out.println("Book#"+statement2+" was not checked out!");
+                        System.out.println("Unable to return Book#"+statement2+".");
                     }
                 }
                 else{
                     System.out.println("Invalid Command!");
                     continue;
                 }
+            }
+            else if(statement1.equals("") && statement2.equals("") && statement3.equals("")){
+                continue;
             }
             else{
                 System.out.println("Invalid Command!");
