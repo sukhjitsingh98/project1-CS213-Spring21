@@ -37,7 +37,7 @@ public class Book {
             return false;
         }
         //will take the toString output cut the first 5 chars, and only leave the next 5 which will be the serial number.
-        String serialNumber = obj.toString().substring(5, 10);
+        String serialNumber = obj.toString().substring(Constants.SERIAL_NUMBER_SUBSTRING_START, Constants.SERIAL_NUMBER_SUBSTRING_END);
 
         //compare the values of the two serial numbers, if they are the same then the books are equal
         if(serialNumber.equals(number)) {

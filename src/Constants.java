@@ -28,7 +28,12 @@ public final class Constants {
     //Constants for year limits
     public static final int MINIMUM_YEAR_LIMIT = 1900;
 
+    //Constant for default value if date input is not an integer
+    public static final int DEFAULT_DATE_IF_INPUT_INVALID = -1;
+
     //Constants for date substring positions
+    public static final int MINIMUM_DATE_SUBSTRING_LENGTH = 5;
+
     public static final int SINGLE_DIGIT_MONTH_DASH_POSITION = 1;
     public static final int DOUBLE_DIGIT_MONTH_DASH_POSITION = 2;
     public static final int SINGLE_DIGIT_DAY_DASH_POSITION1 = 3;
@@ -53,11 +58,16 @@ public final class Constants {
     //Constants for leap year calculation
     public static final int QUADRENNIAL = 4;
     public static final int CENTENNIAL = 100;
-    public static final int QUATERCENTENNIAL = 400;
+    public static final int QUARTERCENTENNIAL = 400;
+
+    //Constants for the Book class
+    public static final int SERIAL_NUMBER_SUBSTRING_START = 5;
+    public static final int SERIAL_NUMBER_SUBSTRING_END = 10;
 
     //Constants for the Library class
     public static final int STARTING_ARRAY_SIZE = 4;
     public static final int INCREASE_ARRAY_BY = 4;
+    public static final int BOOK_NOT_FOUND = -1;
 
     //Constants for the Kiosk class
     public static final int STARTING_SERIAL_NUMBER = 10001;

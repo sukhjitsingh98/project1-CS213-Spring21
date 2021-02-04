@@ -1,6 +1,7 @@
 /**
- First, a single, very descriptive sentence describing the class.
- Then, a couple more sentences of description to elaborate.
+ This class defines the abstract data type Date, which encapsulates the data fields and methods of a Date.
+ Contains constructors to generate Date objects based on input strings, or the today's date by default.
+ Contains getters and setters for the date fields.
  @author German Munguia, Sukhjit Singh
  */
 
@@ -11,11 +12,19 @@ public class Date {
     private int month;
     private int day;
 
+    /**
+     Constructor used to generate a Date object with a given String input representing mm/dd/yyyy.
+     The length of the input string is first tested to see if it meets the minimum length for parsing. If so it is
+     then parsed based on the position of the / symbols. If the input is incorrectly formatted, the year, month, and
+     day variables are assigned a default value of -1.
+     @param date on which the book was published
+     */
     public Date(String date) {
-        if(date.length()<5){
-            year = -1;
-            month = -1;
-            day = -1;
+        //Check if input meets minimum length of 5 characters. m/d/y
+        if(date.length()<Constants.MINIMUM_DATE_SUBSTRING_LENGTH){
+            year = Constants.DEFAULT_DATE_IF_INPUT_INVALID;
+            month = Constants.DEFAULT_DATE_IF_INPUT_INVALID;
+            day = Constants.DEFAULT_DATE_IF_INPUT_INVALID;
         }
         else{
             try {
@@ -48,37 +57,63 @@ public class Date {
                     }
                 }
             } catch (NumberFormatException ex) {
-                    month = -1;
-                    day = -1;
-                    year = -1;
+                //If the input is incorrectly formatted or has a non integer value, the class data members are
+                // assigned a default value of -1.
+                month = Constants.DEFAULT_DATE_IF_INPUT_INVALID;
+                day = Constants.DEFAULT_DATE_IF_INPUT_INVALID;
+                year = Constants.DEFAULT_DATE_IF_INPUT_INVALID;
 
             }
         }
-    } //taking mm/dd/yyyy and create a Date object
+    }
 
+    /**
+     Constructor used to generate a Date object with today's date as default
+     A Calendar class object is used to extract today's date. By default month starts at 0 instead of 1, so +1 is
+     added to correct this.
+     */
     public Date() {
         Calendar calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH)+1;
         day = calendar.get(Calendar.DATE);
-    } //return today’s date
+    }
 
+    /**
+     Helper method which returns an integer representing the 'year' data member of the Date class.
+     @return year the book was published in.
+     */
     public int getYear(){
         return year;
     }
 
+    /**
+     Helper method which returns an integer representing the 'month' data member of the Date class.
+     @return month the book was published in.
+     */
     public int getMonth(){
         return month;
     }
 
+    /**
+     Helper method which returns an integer representing the 'day' data member of the Date class.
+     @return day the book was published on.
+     */
     public int getDay(){
         return day;
     }
 
+    /**
+     Helper method which checks if the Date object's 'year' data member represents a leap year, returning the
+     Boolean value true if it is, false otherwise.
+     The method first checks if the year is divisible by 4 returning false otherwise. Then it checks if it is divisible
+     by 100, returning true otherwise, and it checks if it is further divisible by 400, returning false otherwise.
+     @return true if the year is a leap year, false otherwise.
+     */
     private Boolean isLeapYear(){
         if (year%Constants.QUADRENNIAL==0){
             if (year%Constants.CENTENNIAL==0){
-                if(year%Constants.QUATERCENTENNIAL==0){
+                if(year%Constants.QUARTERCENTENNIAL==0){
                     return true;
                 }
                 else{
@@ -94,20 +129,28 @@ public class Date {
         }
     }
 
+    /**
+     Method to check to see if a Date object has a valid date and returns a Boolean value of true if the date is
+     valid, false otherwise.
+     First check the year. If it is valid, check the month. If month is valid, check the day. Uses the isLeapYear()
+     helper method to aid in calculating the maximum number of days in February.
+     @return true if the date is valid, false otherwise.
+     */
     public Boolean isValid() {
-        Calendar calendar = Calendar.getInstance();
+        //Calendar calendar = Calendar.getInstance();
+        Date today = new Date();
         //If year is not within bounds return false
-        if(year<Constants.MINIMUM_YEAR_LIMIT || year>calendar.get(Calendar.YEAR)){
+        if(year<Constants.MINIMUM_YEAR_LIMIT || year> today.getYear()){
             return false;
         }
-        else if(year==calendar.get(Calendar.YEAR)) {
+        else if(year==today.getYear()){//calendar.get(Calendar.YEAR)) {
             //If it is current year, and month is greater than current month return false
-            if(month>(calendar.get(Calendar.MONTH)+1)) {
+            if(month>(today.getMonth())){
                 return false;
             }
             //If it is current year and month, and date is greater than current date return false
-            else if (month==(calendar.get(Calendar.MONTH)+1)) {
-                if(day>calendar.get(Calendar.DATE)) {
+            else if (month==(today.getMonth())){
+                if(day> today.getDay()){
                     return false;
                 }
             }
@@ -130,7 +173,7 @@ public class Date {
         }
         //If month is February determine if it is a leap year and if day is outside of bounds return false
         else if(month==Constants.FEBRUARY){
-            if(isLeapYear() == true){
+            if(isLeapYear()){
                 if (day>Constants.DAYS_IN_FEB_LEAP_YEAR || day<1) {
                     return false;
                 }
@@ -142,10 +185,16 @@ public class Date {
         return true;
     }
 
-    //Testbed Main
+    /**
+     This method runs the Testbed Main cases on the isValid() method and prints the Boolean results for each case.
+     Date objects are instantiated and then individually tested using the isValid() method.
+     */
     public static void main(String[] args){
+        //Test today's date
         Date date1 = new Date();
         System.out.println("2/2/2021 is a valid date?: "+date1.isValid());
+
+        //Test cases given in the project document - Expected result is false for all cases
         Date date2 = new Date("31/2/2000");
         System.out.println("31/2/2000 is a valid date?: "+date2.isValid());
         Date date3 = new Date("13/2/2020");
@@ -165,6 +214,7 @@ public class Date {
         Date date10 = new Date("3/30/2021");
         System.out.println("3/30/2021 is a valid date?: "+date10.isValid());
 
+        //Test cases using valid input dates - Expected result is true for all cases
         Date date11 = new Date("3/3/2020");
         System.out.println("3/3/2020 is a valid date?: "+date11.isValid());
         Date date12 = new Date("3/30/2020");
@@ -174,6 +224,7 @@ public class Date {
         Date date14 = new Date("12/12/2020");
         System.out.println("12/12/2020 is a valid date?: "+date14.isValid());
 
+        //Test cases with letters in the dates - Expected result is false for all cases
         Date date15 = new Date("A/3/2020");
         System.out.println("A/3/2020 is a valid date?: "+date15.isValid());
         Date date16 = new Date("3/A/2020");
@@ -191,11 +242,13 @@ public class Date {
         Date date22 = new Date("12/12/20A0");
         System.out.println("12/12/20A0 is a valid date?: "+date22.isValid());
 
+        //Test cases with incorrect dashes - Expected result is false for all cases
         Date date23 = new Date("1-3/2020");
         System.out.println("1-3/2020 is a valid date?: "+date23.isValid());
         Date date24 = new Date("1-3/2020");
         System.out.println("1/3-2020 is a valid date?: "+date24.isValid());
 
+        //Test cases with missing dashes - Expected result is false for all cases
         Date date25 = new Date("1 3/2020");
         System.out.println("1 3/2020 is a valid date?: "+date25.isValid());
         Date date26 = new Date("1/3 2020");

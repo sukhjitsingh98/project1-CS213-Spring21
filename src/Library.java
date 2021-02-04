@@ -11,7 +11,10 @@ public class Library {
     private Book[] books; // array-based implementation of the bag data structure
     private int numBooks; // the number of books currently in the bag
 
-
+    /**
+     Constructor to generate a Library object with an array to hold book objects.
+     By default the Library has zero books.
+     */
     public Library() { //default constructor to create an empty bag
         books = new Book[Constants.STARTING_ARRAY_SIZE];
         numBooks = 0;
@@ -31,7 +34,7 @@ public class Library {
             }
         }
         //if its not found, return -1.
-        return -1;
+        return Constants.BOOK_NOT_FOUND;
     }
 
     /**
@@ -78,7 +81,7 @@ public class Library {
         //find the book using the helper method.
         int bookIndex = find(book);
         //if the index equals -1 than the book is not in the library and cannot be removed.
-        if(bookIndex == -1) {
+        if(bookIndex == Constants.BOOK_NOT_FOUND) {
             return false;
         }
         //set the book at the given index as null to remove it.
@@ -104,7 +107,7 @@ public class Library {
         //find the book using the helper method.
         int bookIndex = find(book);
         //if the index equals -1 than the book is not in the library and cannot be checked out.
-        if(bookIndex == -1) {
+        if(bookIndex == Constants.BOOK_NOT_FOUND) {
             return false;
         }
         //if the book is found but it is checked out, it cannot be check out until it is returned
@@ -125,7 +128,7 @@ public class Library {
         //find the book using the helper method.
         int bookIndex = find(book);
         //if the index equals -1 than the book is not in the library and cannot be returned.
-        if(bookIndex == -1) {
+        if(bookIndex == Constants.BOOK_NOT_FOUND) {
             return false;
         }
         //if the book is found but it is not checked out, it cannot be returned
@@ -179,7 +182,7 @@ public class Library {
 
     /**
      Sort the bag from oldest to newest book.
-     */
+    */
     private void sortBooksDateAscending(){
         for (int i = 1; i < books.length; i++) {
             Book[] tempBook = new Book[1];
@@ -196,7 +199,7 @@ public class Library {
     /**
      Print the books in the bag from oldest to newest.
      call the sort by date method to sort and the print method to print.
-     */
+    */
     public void printByDate() {  //print the list of books by datePublished (ascending)
         if (numBooks > 1) {
             //call the sorting method
