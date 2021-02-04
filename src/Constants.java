@@ -1,6 +1,6 @@
 /**
- First, a single, very descriptive sentence describing the class.
- Then, a couple more sentences of description to elaborate.
+ Contains constants which are referenced throughout other classes.
+ All are made immutable as they are constants.
  @author German Munguia, Sukhjit Singh
  */
 
