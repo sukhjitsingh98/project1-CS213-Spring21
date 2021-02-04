@@ -1,6 +1,6 @@
 /**
  This class defines the abstract data type Book, which encapsulates the data fields and methods of a book.
- Then, a couple more sentences of description to elaborate.
+ Contains getters and setters for the book fields.
  @author German Munguia, Sukhjit Singh
  */
 
@@ -11,23 +11,22 @@ public class Book {
     private Date datePublished;
 
     /**
-     The first sentence must be a very descriptive summary of the method (or constructor)..
-     The following lines, if necessary, elaborate and/or give any extra information the user should know.
+     Constructor which creates a book type with the given parameters.
+     A book is set as not checked out upon creation.
      @param number representing the book's serial number
-     @param name assigned to the book
+     @param name assigned to the book as its name
      @param datePublished representing the day the book was first published
      */
     public Book(String number, String name, String datePublished){
-        this.number = number; //MAYBE????
+        this.number = number;
         this.name = name;
         this.datePublished = new Date(datePublished);
         checkedOut = false;
     }
 
     /**
-     The first sentence must be a very descriptive summary of the method (or constructor)..
-     The following lines, if necessary, elaborate and/or give any extra information the user should know.
-     @param obj DESCRIPTION
+     Compares the given book object with the current book based on its serial number.
+     @param obj the given book who's serial number will be compared
      @return true if the serial numbers of both books are equal, false otherwise
      */
     @Override
@@ -37,7 +36,6 @@ public class Book {
         if(obj == null) {
             return false;
         }
-
         //will take the toString output cut the first 5 chars, and only leave the next 5 which will be the serial number.
         String serialNumber = obj.toString().substring(5, 10);
 
@@ -49,12 +47,11 @@ public class Book {
     }
 
     /**
-     The first sentence must be a very descriptive summary of the method (or constructor)..
-     The following lines, if necessary, elaborate and/or give any extra information the user should know.
-     @return true if person was deleted, false otherwise
+     Returns a String with the book fields in a specified format.
+     @return String with the serial number, name, date, and checkedOut fields
      */
     @Override
-    public String toString() { //Return a string with the number,name,date,and checkout status formatted.
+    public String toString() {
         String result =
                 "Book#" + number + "::" + name + "::" + datePublished.getMonth()+ "/" + datePublished.getDay() + "/" + datePublished.getYear() + "::";
         if(checkedOut) {
