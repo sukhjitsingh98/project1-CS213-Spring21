@@ -1,6 +1,6 @@
 /**
- First, a single, very descriptive sentence describing the class.
- Then, a couple more sentences of description to elaborate.
+ Kiosk class creates an interface in which the user can interact with the library.
+ User interacts through inputs using a scanner.
  @author German Munguia, Sukhjit Singh
  */
 
@@ -9,9 +9,13 @@ import java.util.StringTokenizer;
 
 public class Kiosk {
 
+    /**
+     Initiates the interface and awaits and responds to the scanned input.
+     Session does not terminate until it told to.
+     */
     public void run() {
 
-        //Create the bag
+        //Create the library which contains the array bag of book type.
         Library library = new Library();
         System.out.println("Running...");
         int increment = 0;
@@ -151,8 +155,6 @@ public class Kiosk {
                 System.out.println("Invalid Command!");
                 continue;
             }
-
-
 
         }
 
