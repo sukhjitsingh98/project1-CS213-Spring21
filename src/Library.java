@@ -13,7 +13,7 @@ public class Library {
 
 
     public Library() { //default constructor to create an empty bag
-        books = new Book[Constants.STARTINGARRAYSIZE];
+        books = new Book[Constants.STARTING_ARRAY_SIZE];
         numBooks = 0;
     }
 
@@ -39,7 +39,7 @@ public class Library {
      The books are copied into a new array and the bag gets reassigned.
      */
     private void grow() {
-        Book[] newArray = new Book[books.length + Constants.INCREASEARRAYBY];
+        Book[] newArray = new Book[books.length + Constants.INCREASE_ARRAY_BY];
         //copy the current number of books.
         for(int i= 0; i < numBooks; i++) {
             newArray[i] = books[i];

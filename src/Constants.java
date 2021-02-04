@@ -56,11 +56,11 @@ public final class Constants {
     public static final int QUATERCENTENNIAL = 400;
 
     //Constants for the Library class
-    public static final int STARTINGARRAYSIZE = 4;
-    public static final int INCREASEARRAYBY = 4;
+    public static final int STARTING_ARRAY_SIZE = 4;
+    public static final int INCREASE_ARRAY_BY = 4;
 
     //Constants for the Kiosk class
-    public static final int STARTINGSERIALNUMBER = 10001;
+    public static final int STARTING_SERIAL_NUMBER = 10001;
 
 
 }

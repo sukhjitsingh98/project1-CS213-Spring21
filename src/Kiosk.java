@@ -81,7 +81,7 @@ public class Kiosk {
             else if(statement1.equals("A")){
                 if(!statement2.equals("") && !statement3.equals("")){
                     if(new Date(statement3).isValid()){
-                        int serialNumber = Constants.STARTINGSERIALNUMBER + increment;
+                        int serialNumber = Constants.STARTING_SERIAL_NUMBER + increment;
                         Book book = new Book(Integer.toString(serialNumber), statement2, statement3);
                         library.add(book);
                         System.out.println(statement2 + " added to the library.");
