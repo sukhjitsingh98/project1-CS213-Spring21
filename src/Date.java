@@ -214,49 +214,57 @@ public class Date {
         System.out.println("10/30/2022 is a valid date?: "+date9.isValid());
         Date date10 = new Date("3/30/2021");
         System.out.println("3/30/2021 is a valid date?: "+date10.isValid());
+        Date date11 = new Date("0/1/2020");
+        System.out.println("0/1/2020 is a valid date?: "+date11.isValid());
+        Date date12 = new Date("3/0/2020");
+        System.out.println("3/0/2020 is a valid date?: "+date12.isValid());
 
         //Test cases using valid input dates - Expected result is true for all cases
-        Date date11 = new Date("3/3/2020");
-        System.out.println("3/3/2020 is a valid date?: "+date11.isValid());
-        Date date12 = new Date("3/30/2020");
-        System.out.println("3/30/2020 is a valid date?: "+date12.isValid());
-        Date date13 = new Date("12/3/2020");
-        System.out.println("12/3/2020 is a valid date?: "+date13.isValid());
-        Date date14 = new Date("12/12/2020");
-        System.out.println("12/12/2020 is a valid date?: "+date14.isValid());
+        Date date13 = new Date("3/3/2020");
+        System.out.println("3/3/2020 is a valid date?: "+date13.isValid());
+        Date date14 = new Date("3/30/2020");
+        System.out.println("3/30/2020 is a valid date?: "+date14.isValid());
+        Date date15 = new Date("12/3/2020");
+        System.out.println("12/3/2020 is a valid date?: "+date15.isValid());
+        Date date16 = new Date("12/12/2020");
+        System.out.println("12/12/2020 is a valid date?: "+date16.isValid());
+        Date date17 = new Date("2/29/2020");
+        System.out.println("2/29/2020 is a valid date?: "+date17.isValid());
+        Date date18 = new Date("1/1/1900");
+        System.out.println("1/1/1900 is a valid date?: "+date18.isValid());
 
         //Test cases with letters in the dates - Expected result is false for all cases
-        Date date15 = new Date("A/3/2020");
-        System.out.println("A/3/2020 is a valid date?: "+date15.isValid());
-        Date date16 = new Date("3/A/2020");
-        System.out.println("3/A/2020 is a valid date?: "+date16.isValid());
-        Date date17 = new Date("3/A0/2020");
-        System.out.println("3/A0/2020 is a valid date?: "+date17.isValid());
-        Date date18 = new Date("3/3A/2020");
-        System.out.println("3/3A/2020 is a valid date?: "+date18.isValid());
-        Date date19 = new Date("A0/3/2020");
-        System.out.println("A0/3/2020 is a valid date?: "+date19.isValid());
-        Date date20 = new Date("1A/3/2020");
-        System.out.println("1A/3/2020 is a valid date?: "+date20.isValid());
-        Date date21 = new Date("12/12/A");
-        System.out.println("12/12/A is a valid date?: "+date21.isValid());
-        Date date22 = new Date("12/12/20A0");
-        System.out.println("12/12/20A0 is a valid date?: "+date22.isValid());
+        Date date19 = new Date("A/3/2020");
+        System.out.println("A/3/2020 is a valid date?: "+date19.isValid());
+        Date date20 = new Date("3/A/2020");
+        System.out.println("3/A/2020 is a valid date?: "+date20.isValid());
+        Date date21 = new Date("3/A0/2020");
+        System.out.println("3/A0/2020 is a valid date?: "+date21.isValid());
+        Date date22 = new Date("3/3A/2020");
+        System.out.println("3/3A/2020 is a valid date?: "+date22.isValid());
+        Date date23 = new Date("A0/3/2020");
+        System.out.println("A0/3/2020 is a valid date?: "+date23.isValid());
+        Date date24 = new Date("1A/3/2020");
+        System.out.println("1A/3/2020 is a valid date?: "+date24.isValid());
+        Date date25 = new Date("12/12/A");
+        System.out.println("12/12/A is a valid date?: "+date25.isValid());
+        Date date26 = new Date("12/12/20A0");
+        System.out.println("12/12/20A0 is a valid date?: "+date26.isValid());
 
         //Test cases with incorrect dashes - Expected result is false for all cases
-        Date date23 = new Date("1-3/2020");
-        System.out.println("1-3/2020 is a valid date?: "+date23.isValid());
-        Date date24 = new Date("1-3/2020");
-        System.out.println("1/3-2020 is a valid date?: "+date24.isValid());
+        Date date27 = new Date("1-3/2020");
+        System.out.println("1-3/2020 is a valid date?: "+date27.isValid());
+        Date date28 = new Date("1-3/2020");
+        System.out.println("1/3-2020 is a valid date?: "+date28.isValid());
 
         //Test cases with missing dashes - Expected result is false for all cases
-        Date date25 = new Date("1 3/2020");
-        System.out.println("1 3/2020 is a valid date?: "+date25.isValid());
-        Date date26 = new Date("1/3 2020");
-        System.out.println("1/3 2020 is a valid date?: "+date26.isValid());
-        Date date27 = new Date(" /3/2020");
-        System.out.println("/3/2020 is a valid date?: "+date27.isValid());
-        Date date28 = new Date("1/ /2020");
-        System.out.println("1/ /2020 is a valid date?: "+date28.isValid());
+        Date date29 = new Date("1 3/2020");
+        System.out.println("1 3/2020 is a valid date?: "+date29.isValid());
+        Date date30 = new Date("1/3 2020");
+        System.out.println("1/3 2020 is a valid date?: "+date30.isValid());
+        Date date31 = new Date(" /3/2020");
+        System.out.println("/3/2020 is a valid date?: "+date31.isValid());
+        Date date32 = new Date("1/ /2020");
+        System.out.println("1/ /2020 is a valid date?: "+date32.isValid());
     }
 }
