@@ -266,5 +266,7 @@ public class Date {
         System.out.println("/3/2020 is a valid date?: "+date31.isValid());
         Date date32 = new Date("1/ /2020");
         System.out.println("1/ /2020 is a valid date?: "+date32.isValid());
+        Date date33 = new Date("1/3/");
+        System.out.println("1/3/ is a valid date?: "+date33.isValid());
     }
 }
