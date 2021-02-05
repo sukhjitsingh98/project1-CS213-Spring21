@@ -49,7 +49,7 @@ public class Kiosk {
             }
 
             else if(statement1.equals("PA") && statement2.equals("") && statement3.equals("")){
-                if(library.getNumBooks()==0){
+                if(library.getNumBooks() == 0){
                     System.out.println("Library catalog is empty!");
                 }
                 else {
@@ -59,7 +59,7 @@ public class Kiosk {
                 }
             }
             else if(statement1.equals("PD") && statement2.equals("") && statement3.equals("")){
-                if(library.getNumBooks()==0){
+                if(library.getNumBooks() == 0){
                     System.out.println("Bookshelf is empty!");
                 }
                 else {
@@ -69,7 +69,7 @@ public class Kiosk {
                 }
             }
             else if(statement1.equals("PN") && statement2.equals("") && statement3.equals("")){
-                if(library.getNumBooks()==0){
+                if(library.getNumBooks() == 0){
                     System.out.println("Bookshelf is empty!");
                 }
                 else {
@@ -115,16 +115,16 @@ public class Kiosk {
             }
             else if(statement1.equals("O")){
                 if(!statement2.equals("") && statement3.equals("")){
-                    //create a new book with the serial number that wa given, the name and daye are not needed and
+                    //create a new book with the serial number that was given, the name and date are not needed and
                     // can be anything.
                     Book checkOutBook = new Book(statement2, "someName", "someDate");
 
                     Boolean checkOut = library.checkOut(checkOutBook);
                     if(checkOut){
-                        System.out.println("You've checked out Book#"+statement2+". Enjoy!");
+                        System.out.println("You've checked out Book#" + statement2+". Enjoy!");
                     }
                     else{
-                        System.out.println("Book#"+statement2+" is not available.");
+                        System.out.println("Book#" + statement2 + " is not available.");
                     }
                 }
                 else{
@@ -140,10 +140,10 @@ public class Kiosk {
 
                     Boolean returns = library.returns(returnsBook);
                     if(returns){
-                        System.out.println("Book#"+statement2+" return has completed. Thanks!");
+                        System.out.println("Book#" + statement2 + " return has completed. Thanks!");
                     }
                     else{
-                        System.out.println("Unable to return Book#"+statement2+".");
+                        System.out.println("Unable to return Book#" + statement2 + ".");
                     }
                 }
                 else{
@@ -165,5 +165,4 @@ public class Kiosk {
         System.out.println("Kiosk session ended.");
 
     }
-
 }

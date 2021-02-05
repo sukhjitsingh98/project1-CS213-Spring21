@@ -44,7 +44,7 @@ public class Library {
     private void grow() {
         Book[] newArray = new Book[books.length + Constants.INCREASE_ARRAY_BY];
         //copy the current number of books.
-        for(int i= 0; i < numBooks; i++) {
+        for(int i = 0; i < numBooks; i++) {
             newArray[i] = books[i];
         }
         //reassign books so that it refers to newArray.
@@ -58,12 +58,12 @@ public class Library {
      */
     public void add(Book book) {
         //Grow the array if no empty index remains
-        if(books[books.length-1]!=null){
+        if(books[books.length - 1] != null){
             grow();
         }
         //Add new book to the first empty index available
-        for(int i = 0; i<books.length; i++){
-            if(books[i]==null){
+        for(int i = 0; i < books.length; i++){
+            if(books[i] == null){
                 books[i] = book;
                 break;
             }
@@ -89,7 +89,7 @@ public class Library {
         //shift the elements to the right of it by one.
         for(int i = bookIndex+1; i < books.length; i++) {
             //will trail i by one that way the previous index can be replaced. Since i can never be zero there is no out of bound issue.
-            int previousIndex = i-1;
+            int previousIndex = i - 1;
             books[previousIndex] = books[i]; //make the swap of elements
         }
         //reduce the count by one as a book was successfully just removed.
@@ -111,7 +111,7 @@ public class Library {
             return false;
         }
         //if the book is found but it is checked out, it cannot be check out until it is returned
-        else if(books[bookIndex].getCheckedOutStatus()==true){
+        else if(books[bookIndex].getCheckedOutStatus() == true){
             return false;
         }
         //if the book is found but it is not checked out, it can be check out and it is marked as checked out
@@ -132,7 +132,7 @@ public class Library {
             return false;
         }
         //if the book is found but it is not checked out, it cannot be returned
-        else if(books[bookIndex].getCheckedOutStatus()==false){
+        else if(books[bookIndex].getCheckedOutStatus() == false){
             return false;
         }
 
@@ -159,15 +159,15 @@ public class Library {
      */
     private boolean compareDatePublished(Book book1, Book book2){
         //If book1 year is greater than book2 year, return true
-        if(book1.getDatePublished().getYear()>book2.getDatePublished().getYear()){
+        if(book1.getDatePublished().getYear() > book2.getDatePublished().getYear()){
             return true;
         }
-        else if(book1.getDatePublished().getYear()==book2.getDatePublished().getYear()){
+        else if(book1.getDatePublished().getYear() == book2.getDatePublished().getYear()){
             //If same year and book1 month is greater than book2 month, return true
-            if(book1.getDatePublished().getMonth()>book2.getDatePublished().getMonth()){
+            if(book1.getDatePublished().getMonth() > book2.getDatePublished().getMonth()){
                 return true;
             }
-            else if(book1.getDatePublished().getMonth()==book2.getDatePublished().getMonth()){
+            else if(book1.getDatePublished().getMonth() == book2.getDatePublished().getMonth()){
                 //If same year and month and book1 day is greater than book2 day, return true
                 if(book1.getDatePublished().getDay()>book2.getDatePublished().getDay()){
                     return true;
@@ -187,12 +187,12 @@ public class Library {
         for (int i = 1; i < books.length; i++) {
             Book[] tempBook = new Book[1];
             tempBook[0] = books[i];
-            int j = i-1;
-            while(j>=0 && books[j]!=null && tempBook[0]!=null && compareDatePublished(books[j],tempBook[0])==true) {
+            int j = i - 1;
+            while(j >= 0 && books[j] != null && tempBook[0] != null && compareDatePublished(books[j],tempBook[0]) == true) {
                     books[j + 1] = books[j];
                     j = j - 1;
             }
-            books[j+1] = tempBook[0];
+            books[j + 1] = tempBook[0];
         }
     }
 
@@ -215,13 +215,13 @@ public class Library {
         for (int i = 1; i < books.length; i++) {
             Book[] tempBook = new Book[1];
             tempBook[0] = books[i];
-            int j = i-1;
-            while(j>=0&& books[j]!=null && tempBook[0]!=null &&
+            int j = i - 1;
+            while(j >= 0 && books[j] != null && tempBook[0] != null &&
                      Integer.parseInt(books[j].getNumber()) > Integer.parseInt(tempBook[0].getNumber())) {
-                books[j+1] = books[j];
-                j = j-1;
+                books[j + 1] = books[j];
+                j = j - 1;
             }
-            books[j+1] = tempBook[0];
+            books[j + 1] = tempBook[0];
         }
     }
 
@@ -229,7 +229,7 @@ public class Library {
      Print the bag of books by smallest serial number to largest.
      */
     public void printByNumber() {
-        if(numBooks>1) {
+        if(numBooks > 1) {
             //call the sorting method
             sortBooksNumberAscending();
         }
@@ -240,7 +240,6 @@ public class Library {
      Helper method which returns the number of books in the bag.
      @return the number of books in the bag array
      */
-
     public int getNumBooks(){
         return numBooks;
     }

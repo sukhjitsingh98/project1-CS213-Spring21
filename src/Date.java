@@ -21,7 +21,7 @@ public class Date {
      */
     public Date(String date) {
         //Check if input meets minimum length of 5 characters. m/d/y
-        if(date.length()<Constants.MINIMUM_DATE_SUBSTRING_LENGTH){
+        if(date.length() < Constants.MINIMUM_DATE_SUBSTRING_LENGTH){
             year = Constants.DEFAULT_DATE_IF_INPUT_INVALID;
             month = Constants.DEFAULT_DATE_IF_INPUT_INVALID;
             day = Constants.DEFAULT_DATE_IF_INPUT_INVALID;
@@ -75,7 +75,7 @@ public class Date {
     public Date() {
         Calendar calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
-        month = calendar.get(Calendar.MONTH)+1;
+        month = calendar.get(Calendar.MONTH) + 1;
         day = calendar.get(Calendar.DATE);
     }
 
@@ -111,9 +111,9 @@ public class Date {
      @return true if the year is a leap year, false otherwise.
      */
     private Boolean isLeapYear(){
-        if (year%Constants.QUADRENNIAL==0){
-            if (year%Constants.CENTENNIAL==0){
-                if(year%Constants.QUARTERCENTENNIAL==0){
+        if (year % Constants.QUADRENNIAL == 0){
+            if (year % Constants.CENTENNIAL == 0){
+                if(year % Constants.QUARTERCENTENNIAL == 0){
                     return true;
                 }
                 else{
@@ -140,45 +140,46 @@ public class Date {
         //Calendar calendar = Calendar.getInstance();
         Date today = new Date();
         //If year is not within bounds return false
-        if(year<Constants.MINIMUM_YEAR_LIMIT || year> today.getYear()){
+        if(year < Constants.MINIMUM_YEAR_LIMIT || year > today.getYear()){
             return false;
         }
-        else if(year==today.getYear()){//calendar.get(Calendar.YEAR)) {
+        else if(year == today.getYear()){//calendar.get(Calendar.YEAR)) {
             //If it is current year, and month is greater than current month return false
-            if(month>(today.getMonth())){
+            if(month > (today.getMonth())){
                 return false;
             }
             //If it is current year and month, and date is greater than current date return false
-            else if (month==(today.getMonth())){
-                if(day> today.getDay()){
+            else if (month == (today.getMonth())){
+                if(day > today.getDay()){
                     return false;
                 }
             }
         }
         //If month is not within bounds return false
-        else if(month<Constants.JANUARY || month>Constants.DECEMBER) {
+        else if(month < Constants.JANUARY || month > Constants.DECEMBER) {
             return false;
         }
         //If it is a long month, and day is outside of bounds return false
-        else if(month==Constants.JANUARY || month==Constants.MARCH || month==Constants.MAY || month==Constants.JULY || month==Constants.AUGUST || month==Constants.OCTOBER || month==Constants.DECEMBER){
-            if(day>Constants.DAYS_IN_LONG_MONTH || day<1){
+        else if(month == Constants.JANUARY || month == Constants.MARCH || month == Constants.MAY || month == Constants.JULY ||
+                month == Constants.AUGUST || month == Constants.OCTOBER || month == Constants.DECEMBER){
+            if(day > Constants.DAYS_IN_LONG_MONTH || day < 1){
                 return false;
             }
         }
         //If it is a short month, and day is outside of bounds return false
-        else if(month==Constants.APRIL || month==Constants.JUNE || month==Constants.SEPTEMBER || month==Constants.NOVEMBER){
-            if(day>Constants.DAYS_IN_SHORT_MONTH || day<1){
+        else if(month == Constants.APRIL || month == Constants.JUNE || month == Constants.SEPTEMBER || month == Constants.NOVEMBER){
+            if(day > Constants.DAYS_IN_SHORT_MONTH || day < 1){
                 return false;
             }
         }
         //If month is February determine if it is a leap year and if day is outside of bounds return false
-        else if(month==Constants.FEBRUARY){
+        else if(month == Constants.FEBRUARY){
             if(isLeapYear()){
-                if (day>Constants.DAYS_IN_FEB_LEAP_YEAR || day<1) {
+                if (day > Constants.DAYS_IN_FEB_LEAP_YEAR || day < 1) {
                     return false;
                 }
             }
-            else if(day>Constants.DAYS_IN_FEB_NORMAL_YEAR || day<1){
+            else if(day > Constants.DAYS_IN_FEB_NORMAL_YEAR || day < 1){
                 return false;
             }
         }
@@ -193,80 +194,80 @@ public class Date {
     public static void main(String[] args){
         //Test today's date
         Date date1 = new Date();
-        System.out.println("2/2/2021 is a valid date?: "+date1.isValid());
+        System.out.println("2/2/2021 is a valid date?: " + date1.isValid());
 
         //Test cases given in the project document - Expected result is false for all cases
         Date date2 = new Date("31/2/2000");
-        System.out.println("31/2/2000 is a valid date?: "+date2.isValid());
+        System.out.println("31/2/2000 is a valid date?: " + date2.isValid());
         Date date3 = new Date("13/2/2020");
-        System.out.println("13/2/2020 is a valid date?: "+date3.isValid());
+        System.out.println("13/2/2020 is a valid date?: " + date3.isValid());
         Date date4 = new Date("2/29/2021");
-        System.out.println("2/29/2021 is a valid date?: "+date4.isValid());
+        System.out.println("2/29/2021 is a valid date?: " + date4.isValid());
         Date date5 = new Date("2/29/2009");
-        System.out.println("2/29/2009 is a valid date?: "+date5.isValid());
+        System.out.println("2/29/2009 is a valid date?: " + date5.isValid());
         Date date6 = new Date("4/31/2009");
-        System.out.println("4/31/2009 is a valid date?: "+date6.isValid());
+        System.out.println("4/31/2009 is a valid date?: " + date6.isValid());
         Date date7 = new Date("3/32/2009");
-        System.out.println("3/32/2009 is a valid date?: "+date7.isValid());
+        System.out.println("3/32/2009 is a valid date?: " + date7.isValid());
         Date date8 = new Date("3/31/1800");
-        System.out.println("3/31/1800 is a valid date?: "+date8.isValid());
+        System.out.println("3/31/1800 is a valid date?: " + date8.isValid());
         Date date9 = new Date("10/30/2022");
-        System.out.println("10/30/2022 is a valid date?: "+date9.isValid());
+        System.out.println("10/30/2022 is a valid date?: " + date9.isValid());
         Date date10 = new Date("3/30/2021");
-        System.out.println("3/30/2021 is a valid date?: "+date10.isValid());
+        System.out.println("3/30/2021 is a valid date?: " + date10.isValid());
         Date date11 = new Date("0/1/2020");
-        System.out.println("0/1/2020 is a valid date?: "+date11.isValid());
+        System.out.println("0/1/2020 is a valid date?: " + date11.isValid());
         Date date12 = new Date("3/0/2020");
-        System.out.println("3/0/2020 is a valid date?: "+date12.isValid());
+        System.out.println("3/0/2020 is a valid date?: " + date12.isValid());
 
         //Test cases using valid input dates - Expected result is true for all cases
         Date date13 = new Date("3/3/2020");
-        System.out.println("3/3/2020 is a valid date?: "+date13.isValid());
+        System.out.println("3/3/2020 is a valid date?: " + date13.isValid());
         Date date14 = new Date("3/30/2020");
-        System.out.println("3/30/2020 is a valid date?: "+date14.isValid());
+        System.out.println("3/30/2020 is a valid date?: " + date14.isValid());
         Date date15 = new Date("12/3/2020");
-        System.out.println("12/3/2020 is a valid date?: "+date15.isValid());
+        System.out.println("12/3/2020 is a valid date?: " + date15.isValid());
         Date date16 = new Date("12/12/2020");
-        System.out.println("12/12/2020 is a valid date?: "+date16.isValid());
+        System.out.println("12/12/2020 is a valid date?: " + date16.isValid());
         Date date17 = new Date("2/29/2020");
-        System.out.println("2/29/2020 is a valid date?: "+date17.isValid());
+        System.out.println("2/29/2020 is a valid date?: " + date17.isValid());
         Date date18 = new Date("1/1/1900");
-        System.out.println("1/1/1900 is a valid date?: "+date18.isValid());
+        System.out.println("1/1/1900 is a valid date?: " + date18.isValid());
 
         //Test cases with letters in the dates - Expected result is false for all cases
         Date date19 = new Date("A/3/2020");
-        System.out.println("A/3/2020 is a valid date?: "+date19.isValid());
+        System.out.println("A/3/2020 is a valid date?: " + date19.isValid());
         Date date20 = new Date("3/A/2020");
-        System.out.println("3/A/2020 is a valid date?: "+date20.isValid());
+        System.out.println("3/A/2020 is a valid date?: " + date20.isValid());
         Date date21 = new Date("3/A0/2020");
-        System.out.println("3/A0/2020 is a valid date?: "+date21.isValid());
+        System.out.println("3/A0/2020 is a valid date?: " + date21.isValid());
         Date date22 = new Date("3/3A/2020");
-        System.out.println("3/3A/2020 is a valid date?: "+date22.isValid());
+        System.out.println("3/3A/2020 is a valid date?: " + date22.isValid());
         Date date23 = new Date("A0/3/2020");
-        System.out.println("A0/3/2020 is a valid date?: "+date23.isValid());
+        System.out.println("A0/3/2020 is a valid date?: " + date23.isValid());
         Date date24 = new Date("1A/3/2020");
-        System.out.println("1A/3/2020 is a valid date?: "+date24.isValid());
+        System.out.println("1A/3/2020 is a valid date?: " + date24.isValid());
         Date date25 = new Date("12/12/A");
-        System.out.println("12/12/A is a valid date?: "+date25.isValid());
+        System.out.println("12/12/A is a valid date?: " + date25.isValid());
         Date date26 = new Date("12/12/20A0");
-        System.out.println("12/12/20A0 is a valid date?: "+date26.isValid());
+        System.out.println("12/12/20A0 is a valid date?: " + date26.isValid());
 
         //Test cases with incorrect dashes - Expected result is false for all cases
         Date date27 = new Date("1-3/2020");
-        System.out.println("1-3/2020 is a valid date?: "+date27.isValid());
+        System.out.println("1-3/2020 is a valid date?: " + date27.isValid());
         Date date28 = new Date("1/3-2020");
-        System.out.println("1/3-2020 is a valid date?: "+date28.isValid());
+        System.out.println("1/3-2020 is a valid date?: " + date28.isValid());
 
         //Test cases with missing dates and dashes - Expected result is false for all cases
         Date date29 = new Date("1 3/2020");
-        System.out.println("1 3/2020 is a valid date?: "+date29.isValid());
+        System.out.println("1 3/2020 is a valid date?: " + date29.isValid());
         Date date30 = new Date("1/3 2020");
-        System.out.println("1/3 2020 is a valid date?: "+date30.isValid());
+        System.out.println("1/3 2020 is a valid date?: " + date30.isValid());
         Date date31 = new Date("/3/2020");
-        System.out.println("/3/2020 is a valid date?: "+date31.isValid());
+        System.out.println("/3/2020 is a valid date?: " + date31.isValid());
         Date date32 = new Date("1/ /2020");
-        System.out.println("1/ /2020 is a valid date?: "+date32.isValid());
+        System.out.println("1/ /2020 is a valid date?: " + date32.isValid());
         Date date33 = new Date("1/3/");
-        System.out.println("1/3/ is a valid date?: "+date33.isValid());
+        System.out.println("1/3/ is a valid date?: " + date33.isValid());
     }
 }
