@@ -257,7 +257,7 @@ public class Date {
         Date date28 = new Date("1/3-2020");
         System.out.println("1/3-2020 is a valid date?: "+date28.isValid());
 
-        //Test cases with missing dashes - Expected result is false for all cases
+        //Test cases with missing dates and dashes - Expected result is false for all cases
         Date date29 = new Date("1 3/2020");
         System.out.println("1 3/2020 is a valid date?: "+date29.isValid());
         Date date30 = new Date("1/3 2020");
